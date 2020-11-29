@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Data</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./css/style.css"> -->
+    <!-- <link rel="dns-prefetch" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="text-center">
+    <div class="border border-primary w-75 p-3">
+        <p>Please map the details next extractor to previous extractor:</p>
+
+        <hr>
+
+        <div>FYI, File Headers form the uploaded file</div>
+        <div class="row mt-5" id="fileHeaders">
+            <!-- <div class="btn btn-block btn-outline-warning" id="fileHeaders1">fas</div>
+            <div class="btn btn-block btn-outline-dark" id="fileHeaders2">asdf</div>
+            <div class="btn btn-block btn-outline-success" id="fileHeaders3">asdf</div> -->
+        </div>
+
+        <hr>
+        <div class="row m-2 mt-5">
+            <input class="col-md-5 ml-5" autocomplete="on" type="text" id="extractor-id" placeholder="Extractor Id" required>
+            <div class="col-md-5 form-check">
+                <input type="checkbox" class="form-check-input" id="need-to-deDup" value="checked">
+                <label class="form-check-label" for="need-to-deDup">Need to de-dup</label>
+            </div>
+        </div>
+
+        <div class="row m-2">
+            <input class="col-md-5 ml-5" autocomplete="on" type="text" id="column-name-_url-next" value="_url" placeholder="_url" readonly/>
+            <input class="col-md-5 ml-5" autocomplete="on" type="text" id="column-name-_url-prev" placeholder="url in Listing" />
+        </div>
+
+        <hr>
+        <!-- <div id="spinner"></div> -->
+        <div class="spinner-grow" id="spinner" style="width: 3rem; height: 3rem;" role="status" hidden>
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="mt-5">Optional Parameters</div>
+        <div class="row m-2">
+            <label class="col-md-5 p-2 ml-5 badge badge-success" for="column-tag">TAG to append at the end of _urls?</label>
+            <input class="col-md-5 ml-5" autocomplete="on" type="text" id="column-tag" placeholder="TAG" />
+        </div>
+
+        <div class="row m-2">
+            <input class="col-md-5 ml-5" autocomplete="on" type="text" id="column-1-next" placeholder="column_1 name in next" />
+            <input class="col-md-5 ml-5" autocomplete="on" type="text" id="column-1-prev" placeholder="column_1 in previous" />
+        </div>
+
+        <div class="row m-2">
+            <input class="col-md-5 ml-5" autocomplete="on" type="text" id="column-2-next" placeholder="column_2 name in next" />
+            <input class="col-md-5 ml-5" autocomplete="on" type="text" id="column-2-prev" placeholder="column_2 in previous" />
+        </div>
+
+        <div class="row m-2">
+            <a class="col-md-5 p-1 ml-5 btn btn-info btn-block" href='/'>Go to homepage</a>
+            <button class="col-md-5 ml-5 btn btn-primary btn-block" id="post-data-to-extractor">Post Data To Extractor</button>
+        </div>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="./js/postData.js"></script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
+</html>

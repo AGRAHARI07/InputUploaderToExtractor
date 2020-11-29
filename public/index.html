@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="text-center">
+    <div class="border border-primary w-75 p-3">
+        <p>Please select CSV files from your computer:</p>
+
+        <hr>
+        <form class="row" id="uploadForm" enctype="multipart/form-data" action="/multiple-upload" method="POST" onSubmit=" location.href = `${window.location.href/postData.html}`; return false; ">
+            <!-- <input class="col-md-5 ml-5 btn-block" type="file" name="file"> -->
+            <div class="input-group col-md-5 ml-5">
+                <div class="custom-file">
+                    <input type="file" multiple class="custom-file-input" id="inputGroupFile03" name="multi-files">
+                    <label class="custom-file-label text-truncate" for="inputGroupFile03">Choose file</label>
+                </div>
+            </div>
+            <input class="col-md-5 ml-5 btn btn-primary btn-block" type="submit" value="Upload" name="submit" type="button" />
+        </form>
+        <!-- <a href="./postData.html">Click here</a> -->
+        <hr>
+        <p>Please input parent extractor id</p>
+        <div class="row">
+            <input type="text" class="col-md-5 ml-5" id="extractorId">
+            <button class="col-md-5 ml-5 btn btn-primary btn-block" type="submit" onclick="postExtractorId()" value="Upload" name="submit">submit</button>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src='./js/script.js'></script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
+</html>
