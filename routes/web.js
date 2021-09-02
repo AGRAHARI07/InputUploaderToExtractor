@@ -30,8 +30,8 @@ let routes = app => {
     router.post("/api/postDataToExtractor", putInput.putInputToExtractor);
 
     // fetchs latest crawl csv file and converts to json from given extractor id
-    router.use(bodyParser.json());
-    router.post("/postlatestcrawlrun", putLatestCrawlData.putLatestCrawlData)
+    // router.use(bodyParser.json());
+    // router.post("/postlatestcrawlrun", putLatestCrawlData.putLatestCrawlData)
 
     return app.use("/", router);
 };
