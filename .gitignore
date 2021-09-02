@@ -27,7 +27,6 @@ coverage
 
 # MANUAL FILES IGNORE
 .vscode/
-configurations.json
 convertedFile
 uploadedFile
 
