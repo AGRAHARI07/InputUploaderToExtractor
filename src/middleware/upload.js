@@ -32,7 +32,7 @@ const uploadFiles = multer({ //multer settings
         }
         callback(null, true);
     }
-}).array("multi-files", 15);
+}).array("multi-files", process.env.MAX_FILE_SUPPORT || 15);
 
 
 module.exports = {
