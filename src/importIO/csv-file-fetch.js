@@ -1,8 +1,6 @@
 const fetch = require('node-fetch');
 const { createWriteStream } = require('fs');
-const { pipeline } = require('stream');
-const { promisify } = require('util');
-const config = require('../configurations.json');
+const config = process.env;
 
 
 const downloadFile = (async(url, path) => {

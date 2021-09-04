@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const config = require('../configurations.json');
+const config = process.env;
 
 /**
  * It uses import API and the API key of the deloitte account to put the data provided as an input to the extractor
@@ -13,6 +13,10 @@ const config = require('../configurations.json');
 
 const PUTInputData = async function postInputData(extractorId, dataToUpload) {
     const key = config.apiKey;
+    if(!key) throw new Error("Empty API key");
+    if(!extractorId) throw new Error("Empty or null extractor id");
+    if(!dataToUpload) throw new Error("Empty or null dataToUpload");
+
     let res = await fetch(`https://store.import.io/store/extractor/${extractorId}/_attachment/inputs?_apikey=${key}`, {
         method: 'PUT',
         body: dataToUpload,

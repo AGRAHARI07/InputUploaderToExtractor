@@ -1,6 +1,6 @@
 const path = require("path");
 const multer = require("multer");
-const config = require('../configurations.json');
+const config = process.env;
 
 function getNumberOfCount(req) {
     const fileCount = req.files.length;

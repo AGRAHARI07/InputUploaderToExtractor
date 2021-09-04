@@ -1,6 +1,6 @@
 const fs = require('fs')
 const utilities = require('./utilities');
-const config = require('./configurations.json');
+const config = process.env;
 const readline = require('readline');
 
 // const folder = `./public/files/convertedFile`;

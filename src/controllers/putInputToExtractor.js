@@ -28,7 +28,7 @@ function putData(extractorId, formatted_data) {
  * @param res is the response sent from here, it contains the response obtained from the import server after PUT request.
  * 
  */
-const putInputToExtractor = async(req, res) => {
+const putInputToExtractor = async (req, res) => {
     let body = req.body;
     let extractorId = body.extractorId;
 
@@ -53,6 +53,15 @@ const putInputToExtractor = async(req, res) => {
                     });
                     res.end();
                     return res;
+                })
+                .catch(error => {
+                    res.writeHeader(400, {
+                        "Content-Type": "text/html",
+                        "statusText": "FAILED: Something went wrong while posting data to import tool, Sorry can't help it"
+                    });
+
+                    res.end();
+                    throw error;
                 })
         })
         .catch(error => {

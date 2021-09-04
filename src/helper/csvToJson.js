@@ -1,6 +1,6 @@
 const csv = require('csvtojson');
 const fs = require('fs');
-const config = require('../configurations.json');
+const config = process.env;
 const HorizontalLineDash = '-----------------------------------------------------------------------------------------------------------------';
 
 /**

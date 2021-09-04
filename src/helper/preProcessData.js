@@ -1,8 +1,9 @@
 const fs = require('fs');
 const readline = require('readline');
+const path = require('path');
 
 const utilities = require('./utilities');
-const config = require('../configurations.json');
+const config = process.env;
 let uniqUrlArr = []; // global array to store unique values from all the files if de-dup required.
 
 const modifySingleFile = function modifySingleFile(folderPath, jsonFile, needToDeDup, oldAndNewKeys, keyToAppendIn_url) {
@@ -96,13 +97,6 @@ const modifySingleFile = function modifySingleFile(folderPath, jsonFile, needToD
     })
 }
 
-// const deleteFilesSync = (fileNames, filesRootDirPath) => {
-
-//     fileNames.length ? fileNames.forEach(file => {
-//         fs.unlinkSync(`${filesRootDirPath}/${file}`);
-//     }) : "";
-// }
-
 const getJsonFiles = (filesRootDirPath) => {
     const files = fs.readdirSync(filesRootDirPath);
     let fileNames = files.filter(file => file.includes(`${config.fileNameUploadedFromServerInJson}`));
@@ -123,17 +117,11 @@ const modifyJsonFilesData = (body) => {
             let needToDeDup = body.deDup;
             let keyToAppendIn_url = body.tag;
 
-            const folderPath = `./public/files/convertedFile`;
+            const folderPath = path.join(`${__dirname}/../public/files/convertedFile`);
 
             const originalJsonFiles = getJsonFiles(folderPath);
 
             if (!originalJsonFiles.length) { rej('No files found to read'); return }
-
-            // const importFormatJsonFiles = files.filter(file => file.includes(`${config.fileNameKeyReplacedJson}`));
-            // deleteFilesSync();
-            // const error = `No json file found in the directory: ${filesRootDirPath}`;
-            // console.log(error);
-            // rej(error);
 
             let returnData = '';
             // modifying all the json files as per import request body
