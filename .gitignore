@@ -1,6 +1,5 @@
 # Custom files
 test.js
-
 # Logs
 logs
 *.log
@@ -30,8 +29,6 @@ coverage
 
 # MANUAL FILES IGNORE
 .vscode/
-convertedFile
-uploadedFile
 
 # Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
