@@ -12,16 +12,19 @@ const config = process.env;
  */
 
 const PUTInputData = async function postInputData(extractorId, dataToUpload) {
-    const key = config.apiKey;
-    if(!key) throw new Error("Empty API key");
+    const apiKey = config.API_KEY;
+    const baseUrl = config.BASE_URL;
+
     if(!extractorId) throw new Error("Empty or null extractor id");
     if(!dataToUpload) throw new Error("Empty or null dataToUpload");
+    if(!(apiKey && baseUrl)) throw Error('API or base URL not specified, check your configuration')
 
-    let res = await fetch(`https://store.import.io/store/extractor/${extractorId}/_attachment/inputs?_apikey=${key}`, {
+    let res = await fetch(`${baseUrl}${extractorId}/_attachment/inputs?_apikey=${apiKey}`, {
         method: 'PUT',
         body: dataToUpload,
         headers: { 'Content-Type': 'application/json' },
     });
+
 
     if (res.status === 200) {
         res = await res.json();

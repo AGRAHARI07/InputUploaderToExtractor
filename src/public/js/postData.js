@@ -3,7 +3,6 @@ let nextExtColIds = [`column-name-_url-next`, `column-1-next`, `column-2-next`];
 let extractorId = document.getElementById(`extractor-id`);
 let needDeDup = document.querySelector('#need-to-deDup');
 let tagToAppend = document.querySelector('#column-tag');
-// const BASE_URL = `https://localhost:3000`;
 
 
 async function postUrlsToExtractor() {

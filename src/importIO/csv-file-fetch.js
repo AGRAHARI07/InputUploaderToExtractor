@@ -17,10 +17,14 @@ const downloadFile = (async(url, path) => {
 });
 
 const csvFile = (extractorId, path) => {
+    const apiKey = config.API_KEY;
+    const baseUrl = config.BASE_URL;
+    
     if (!extractorId) throw Error(`extractor id not found: ${extractorId}`);
     if (!path) throw Error(`path to save csv file not passed: ${path}`);
+    if(!(apiKey && baseUrl)) throw Error('API or base URL not specified, check your configuration')
 
-    const url = `https://data.import.io/extractor/${extractorId}/csv/latest?_apikey=${config.apiKey}`;
+    const url = `${baseUrl}${extractorId}/csv/latest?_apikey=${apiKey}`;
 
     return new Promise((res, rej) => {
         downloadFile(url, path)
