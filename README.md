@@ -11,8 +11,8 @@ https://localhost:3000
 ```
 
 ### Uploading file
-- Simply download csv files from import, place all of them in a folder without opening them
-- Max file count is 15
+- Convert csv files to NDJson files
+- Max default file that can be processed/uploaded count is 15. Can be configured from the env variable
 - Hit upload button
 
 It will take you to another page
